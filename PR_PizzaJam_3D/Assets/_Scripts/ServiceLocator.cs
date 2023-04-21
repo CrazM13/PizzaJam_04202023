@@ -6,6 +6,7 @@ public class ServiceLocator : MonoBehaviour {
 	// Readonly services
 	public static SceneTransition @SceneManager { get; set; }
 	public static AudioManager @AudioManager { get; set; }
+	public static SwingManager @SwingManager { get; set; }
 
 	// Singleton
 	private static ServiceLocator instance;
@@ -22,12 +23,14 @@ public class ServiceLocator : MonoBehaviour {
 	private void LocateServices() {
 		@SceneManager = FindObjectOfType<SceneTransition>();
 		@AudioManager = FindObjectOfType<AudioManager>();
+		@SwingManager = new SwingManager();
 	}
 
 	private void OnDestroy() {
 		if (instance == this) {
 			@SceneManager = null;
-			AudioManager = null;
+			@AudioManager = null;
+			SwingManager = null;
 		}
 	}
 }
