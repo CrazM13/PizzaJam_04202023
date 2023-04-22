@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SwingSFX
   m_EditorClassIdentifier: 
   group: {fileID: 0}
-  audioClips: []
+  audioClips:
+  - item: {fileID: 8300000, guid: 5048bd0ce09613544a66d0bb6f996bd9, type: 3}
+    weight: 0

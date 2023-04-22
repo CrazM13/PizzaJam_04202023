@@ -20,6 +20,7 @@ public class Snot_Launcher : MonoBehaviour
         if (snotFireTimer <= 0f){
             snotFireTimer = 20f;
             Instantiate(Snot, this.transform.position, Quaternion.identity);
+			ServiceLocator.AudioManager.PlayRandomLocal(transform.position, "SneezeSFX");
         }
     }
 

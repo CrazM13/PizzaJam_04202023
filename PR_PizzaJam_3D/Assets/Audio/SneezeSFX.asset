@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ae47541f2112e64d89dcedae92936ef, type: 3}
-  m_Name: HitSFX
+  m_Name: SneezeSFX
   m_EditorClassIdentifier: 
   group: {fileID: 0}
   audioClips:
-  - item: {fileID: 8300000, guid: f24acd1ee8f109745a2466f9add2bc44, type: 3}
+  - item: {fileID: 8300000, guid: bfaf1fa42f3ae54458a548aa610af138, type: 3}
     weight: 0
