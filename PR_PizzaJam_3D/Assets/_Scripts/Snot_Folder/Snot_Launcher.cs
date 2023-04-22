@@ -22,4 +22,9 @@ public class Snot_Launcher : MonoBehaviour
             Instantiate(Snot, this.transform.position, Quaternion.identity);
         }
     }
+
+    public void Assault()
+    {
+        Debug.Log("Game Over.");
+    }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763425455878841359}
   - component: {fileID: 763425455878841352}
+  - component: {fileID: -4220248889572217138}
   m_Layer: 0
   m_Name: OldMan
   m_TagString: Untagged
@@ -46,3 +47,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snotFireTimer: 0
   Snot: {fileID: 3236417738769094594, guid: bc3b969bf83fb9b4a83d7d6b1e804ce5, type: 3}
+--- !u!114 &-4220248889572217138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763425455878841353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84470aef879ded848b7240d5c975cb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 763425455878841352}
+        m_TargetAssemblyTypeName: Snot_Launcher, Assembly-CSharp
+        m_MethodName: Assault
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
