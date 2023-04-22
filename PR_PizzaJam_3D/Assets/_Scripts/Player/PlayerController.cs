@@ -87,11 +87,33 @@ public class PlayerController : MonoBehaviour {
 	#endregion
 
 	#region Swinging
+
+	public bool IsAimingAtObject { get; private set; }
+
 	private void OnSwingUpdate() {
+
+		Vector3 swingCenter = cameraTransform.position + (cameraTransform.forward * swingRadius);
+
+		IsAimingAtObject = ServiceLocator.SwingManager.GetTargetsInArea(swingCenter, swingRadius).Count > 0;
+
 		if (isSwinging) {
-			ServiceLocator.SwingManager.SwingAtArea(cameraTransform.position + (cameraTransform.forward * swingRadius), swingRadius);
+			ServiceLocator.SwingManager.SwingAtArea(swingCenter, swingRadius);
+			ServiceLocator.AudioManager.PlayRandomLocal(transform.position, "SwingSFX");
 		}
 	}
+
+#if UNITY_EDITOR
+
+	private void DebugSwingArea() {
+		if (cameraTransform) {
+			Vector3 swingCenter = cameraTransform.position + (cameraTransform.forward * swingRadius);
+
+			Gizmos.DrawWireSphere(swingCenter, swingRadius);
+		}
+	}
+
+#endif
+
 	#endregion
 
 	// Start is called before the first frame update
@@ -112,4 +134,10 @@ public class PlayerController : MonoBehaviour {
 		OnMove();
 		OnUpdateCamera();
 	}
+
+#if UNITY_EDITOR
+	private void OnDrawGizmos() {
+		DebugSwingArea();
+	}
+#endif
 }

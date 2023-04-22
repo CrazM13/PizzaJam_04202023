@@ -144,5 +144,7 @@ MonoBehaviour:
   globalAudioSource: {fileID: 938954893204877391}
   prefabAudioSource: {fileID: 2135173179392349793, guid: 955fa6ae8f3dcef48b0a107503a05ae9,
     type: 3}
-  audioGroups: []
+  audioGroups:
+  - {fileID: 11400000, guid: 610df119b06f46b419f6480fdc2db5ac, type: 2}
+  - {fileID: 11400000, guid: 7552a068fb66ff5498b8332c5e776308, type: 2}
   maxFloatingAudioSources: 32
