@@ -37,6 +37,7 @@ public class Snot_Fire : MonoBehaviour
         if (isReflected == false)
         {
             isReflected = true;
+            timeLerpStart = Time.time;
             target = startingPosition;
             startingPosition = this.transform.position;
         }
