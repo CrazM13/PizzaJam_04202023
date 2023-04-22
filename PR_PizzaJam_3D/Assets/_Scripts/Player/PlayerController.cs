@@ -6,13 +6,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	#region Inspector
-	[Header("Settings")]
+	[Header("Movement Settings")]
 	[SerializeField] private float maxMovementSpeed;
 	[SerializeField] private AnimationCurve accelerationCurve;
+	[Header("Swing Settings")]
 	[SerializeField] private float swingRadius;
-
-	[Header("Components")]
+	[Header("Camera Settings")]
+	[SerializeField] private Vector2 cameraSensativity;
+	[SerializeField] private float maxCameraTilt;
+	[Space()]
+	[Header("Model Components")]
+	[SerializeField] private Transform rotationTransform;
+	[Header("Camera Components")]
 	[SerializeField] private Transform overTheShoulderCamera;
+	[SerializeField] private Transform cameraFocusPoint;
 	#endregion
 
 	#region Input
@@ -61,17 +68,21 @@ public class PlayerController : MonoBehaviour {
 
 	#region Camera
 	private Transform cameraTransform;
-	private Transform modelTransform;
+
+	private float cameraTilt;
 
 	private void InitCamera() {
 		Cursor.lockState = CursorLockMode.Locked;
 		cameraTransform = Camera.main.transform;
-		modelTransform = transform.Find("Model");
 	}
 
 	private void OnUpdateCamera() {
-		modelTransform.Rotate(Vector3.up, mouseInput.x);
-		overTheShoulderCamera.Rotate(Vector3.right, -mouseInput.y);
+		rotationTransform.Rotate(Vector3.up, mouseInput.x * cameraSensativity.x * Time.deltaTime);
+
+		cameraTilt += -mouseInput.y * cameraSensativity.y * Time.deltaTime;
+		cameraTilt = Mathf.Clamp(cameraTilt, -maxCameraTilt, maxCameraTilt);
+		Vector3 direction = Quaternion.AngleAxis(cameraTilt, cameraTransform.right) * rotationTransform.forward;
+		cameraFocusPoint.position = rotationTransform.position + direction;
 	}
 	#endregion
 
@@ -93,8 +104,12 @@ public class PlayerController : MonoBehaviour {
 	void Update() {
 		GetInputs();
 
+		
+		OnSwingUpdate();
+	}
+
+	private void FixedUpdate() {
 		OnMove();
 		OnUpdateCamera();
-		OnSwingUpdate();
 	}
 }
