@@ -5,23 +5,23 @@ using UnityEngine;
 public class Snot_Fire : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Transform target;
-    private Transform startingPosition;
+    private Vector3 target;
+    private Vector3 startingPosition;
     public float timeLerpStart;
-    public float lerpTime = 1;
+    public float lerpTime = 10f;
     public bool isReflected;
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("target").transform;
-        startingPosition = this.transform;
+        target = GameObject.FindGameObjectWithTag("target").transform.position;
+        startingPosition = this.transform.position;
         timeLerpStart = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-            this.transform.position = snotFired(startingPosition.position, target.position, timeLerpStart, lerpTime);
+            this.transform.position = snotFired(startingPosition, target, timeLerpStart, lerpTime);
     }
 
     public Vector3 snotFired(Vector3 start, Vector3 end, float timeLerping, float lerpTiming)
@@ -37,8 +37,8 @@ public class Snot_Fire : MonoBehaviour
         if (isReflected == false)
         {
             isReflected = true;
-            target.position = startingPosition.position;
-            startingPosition = this.transform;
+            target = startingPosition;
+            startingPosition = this.transform.position;
         }
     }
 }
