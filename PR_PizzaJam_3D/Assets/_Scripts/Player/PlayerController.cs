@@ -81,8 +81,10 @@ public class PlayerController : MonoBehaviour {
 
 		cameraTilt += -mouseInput.y * cameraSensativity.y * Time.deltaTime;
 		cameraTilt = Mathf.Clamp(cameraTilt, -maxCameraTilt, maxCameraTilt);
-		Vector3 direction = Quaternion.AngleAxis(cameraTilt, cameraTransform.right) * rotationTransform.forward;
-		cameraFocusPoint.position = rotationTransform.position + direction;
+		//Vector3 direction = Quaternion.AngleAxis(cameraTilt, cameraTransform.right) * rotationTransform.forward;
+		//cameraFocusPoint.position = rotationTransform.position + direction;
+
+		overTheShoulderCamera.localRotation = Quaternion.AngleAxis(cameraTilt, Vector3.right);
 	}
 	#endregion
 
@@ -128,12 +130,11 @@ public class PlayerController : MonoBehaviour {
 
 		
 		OnSwingUpdate();
-		OnUpdateCamera();
 	}
 
 	private void FixedUpdate() {
 		OnMove();
-		
+		OnUpdateCamera();
 	}
 
 #if UNITY_EDITOR
