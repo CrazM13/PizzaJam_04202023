@@ -16,7 +16,6 @@ public class Snot_Fire : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("target").transform;
         startingPosition = this.transform;
         timeLerpStart = Time.time;
-        isReflected = false;
     }
 
     // Update is called once per frame
