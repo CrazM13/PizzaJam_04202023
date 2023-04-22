@@ -128,11 +128,12 @@ public class PlayerController : MonoBehaviour {
 
 		
 		OnSwingUpdate();
+		OnUpdateCamera();
 	}
 
 	private void FixedUpdate() {
 		OnMove();
-		OnUpdateCamera();
+		
 	}
 
 #if UNITY_EDITOR
