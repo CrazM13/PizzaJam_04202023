@@ -145,6 +145,7 @@ MonoBehaviour:
   prefabAudioSource: {fileID: 2135173179392349793, guid: 955fa6ae8f3dcef48b0a107503a05ae9,
     type: 3}
   audioGroups:
+  - {fileID: 11400000, guid: ca0e7e77542e47944b6866afdf972266, type: 2}
   - {fileID: 11400000, guid: 610df119b06f46b419f6480fdc2db5ac, type: 2}
   - {fileID: 11400000, guid: 7552a068fb66ff5498b8332c5e776308, type: 2}
   - {fileID: 11400000, guid: 2b120b176f90c264bba123d4fa25179a, type: 2}
