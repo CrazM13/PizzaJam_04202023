@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoseTrigger : MonoBehaviour
 {
-
+	[SerializeField] private HumanoidAnimationManager animations;
 
     // Update is called once per frame
     void Update()
@@ -17,12 +17,16 @@ public class LoseTrigger : MonoBehaviour
         if (collision.collider.tag == "Snot")
         {
             Gameover();
-        }
+			animations.PlayDeath();
+
+		}
     }
                 
 
     public void Gameover()
     {
         Debug.Log("GAMEOVER");
-    }
+		animations.PlayDeath();
+
+	}
 }

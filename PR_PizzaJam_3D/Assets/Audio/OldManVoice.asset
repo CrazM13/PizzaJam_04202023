@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae47541f2112e64d89dcedae92936ef, type: 3}
+  m_Name: OldManVoice
+  m_EditorClassIdentifier: 
+  group: {fileID: 0}
+  audioClips:
+  - item: {fileID: 8300000, guid: c004e458b8c50b147a040ae0a4d7d115, type: 3}
+    weight: 1
+  - item: {fileID: 8300000, guid: 20a116e60d8d56e4489dbc668f658635, type: 3}
+    weight: 1
+  - item: {fileID: 8300000, guid: 01b2ce5d3bbf47d4a9e7748c8fee2db0, type: 3}
+    weight: 1
+  - item: {fileID: 8300000, guid: 3e1e6001b398aa349b4bf6180a40ac1d, type: 3}
+    weight: 1

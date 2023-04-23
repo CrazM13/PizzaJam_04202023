@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 	[Space()]
 	[Header("Model Components")]
 	[SerializeField] private Transform rotationTransform;
+	[SerializeField] private HumanoidAnimationManager animations;
 	[Header("Camera Components")]
 	[SerializeField] private Transform overTheShoulderCamera;
 	[SerializeField] private Transform cameraFocusPoint;
@@ -101,6 +102,7 @@ public class PlayerController : MonoBehaviour {
 		if (isSwinging) {
 			ServiceLocator.SwingManager.SwingAtArea(swingCenter, swingRadius);
 			ServiceLocator.AudioManager.PlayRandomLocal(transform.position, "SwingSFX");
+			animations.PlayAction();
 		}
 	}
 

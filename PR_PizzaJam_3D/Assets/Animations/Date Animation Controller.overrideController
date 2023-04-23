@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Date Animation Controller
+  m_Controller: {fileID: 9100000, guid: 7c8447b7f69de084b9aaa5c665db81bc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 83b719d9d3dc82441a4bc5535d273a57, type: 2}
+    m_OverrideClip: {fileID: -1936949197741100743, guid: 2117d6ff7e0f70c40a11341db367f2bc,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: bd4b687004d4b474aa98d1dff34d606f, type: 2}
+    m_OverrideClip: {fileID: 4194427041386320899, guid: 2117d6ff7e0f70c40a11341db367f2bc,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 2754a92af6989244992584092ce9c9cb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2754a92af6989244992584092ce9c9cb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3abffbffa173b8a4c953681f1fcd8007, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3abffbffa173b8a4c953681f1fcd8007, type: 2}
