@@ -479,7 +479,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  swingRadius: 2
+  swingRadius: 0.5
+  swingDistance: 8
   cameraSensativity: {x: 20, y: 30}
   maxCameraTilt: 15
   rotationTransform: {fileID: 2020272539864953307}

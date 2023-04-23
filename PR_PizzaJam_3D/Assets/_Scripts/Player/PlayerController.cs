@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private AnimationCurve accelerationCurve;
 	[Header("Swing Settings")]
 	[SerializeField] private float swingRadius;
+	[SerializeField] private int swingDistance;
 	[Header("Camera Settings")]
 	[SerializeField] private Vector2 cameraSensativity;
 	[SerializeField] private float maxCameraTilt;
@@ -97,22 +98,38 @@ public class PlayerController : MonoBehaviour {
 
 		Vector3 swingCenter = cameraTransform.position + (cameraTransform.forward * swingRadius);
 
-		IsAimingAtObject = ServiceLocator.SwingManager.GetTargetsInArea(swingCenter, swingRadius).Count > 0;
+		IsAimingAtObject = CanSwingRaycast();//ServiceLocator.SwingManager.GetTargetsInArea(swingCenter, swingRadius).Count > 0;
 
 		if (isSwinging) {
-			ServiceLocator.SwingManager.SwingAtArea(swingCenter, swingRadius);
+			SwingInRaycast();
 			ServiceLocator.AudioManager.PlayRandomLocal(transform.position, "SwingSFX");
 			animations.PlayAction();
 		}
 	}
 
+	private bool CanSwingRaycast() {
+		for (int i = 1; i <= swingDistance; i++) {
+			Vector3 swingCenter = cameraTransform.position + (cameraTransform.forward * (swingRadius * i));
+			if (ServiceLocator.SwingManager.GetTargetsInArea(swingCenter, swingRadius).Count > 0) return true;
+		}
+		return false;
+	}
+
+	private void SwingInRaycast() {
+		for (int i = 1; i <= swingDistance; i++) {
+			Vector3 swingCenter = cameraTransform.position + (cameraTransform.forward * (swingRadius * i));
+			ServiceLocator.SwingManager.SwingAtArea(swingCenter, swingRadius);
+		}
+	}
+
 #if UNITY_EDITOR
 
-	private void DebugSwingArea() {
+	private void DebugSwingRaycast() {
 		if (cameraTransform) {
-			Vector3 swingCenter = cameraTransform.position + (cameraTransform.forward * swingRadius);
-
-			Gizmos.DrawWireSphere(swingCenter, swingRadius);
+			for (int i = 1; i <= swingDistance; i++) {
+				Vector3 swingCenter = cameraTransform.position + (cameraTransform.forward * (swingRadius * i));
+				Gizmos.DrawWireSphere(swingCenter, swingRadius);
+			}
 		}
 	}
 
@@ -141,7 +158,7 @@ public class PlayerController : MonoBehaviour {
 
 #if UNITY_EDITOR
 	private void OnDrawGizmos() {
-		DebugSwingArea();
+		DebugSwingRaycast();
 	}
 #endif
 }
