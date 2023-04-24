@@ -38,6 +38,9 @@ public class Snot_Fire : MonoBehaviour
         {
             isReflected = true;
             timeLerpStart = Time.time;
+            Vector3 relativePos = startingPosition - this.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+            this.transform.rotation = rotation;
             target = startingPosition;
             startingPosition = this.transform.position;
         }
