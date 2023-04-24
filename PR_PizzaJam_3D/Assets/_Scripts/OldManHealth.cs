@@ -41,6 +41,15 @@ public class OldManHealth : MonoBehaviour
     {
         return health / maxHealth;
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Snot")
+        {
+            Debug.Log("OUCH");     
+
+        }
+    }
 }
 
 
