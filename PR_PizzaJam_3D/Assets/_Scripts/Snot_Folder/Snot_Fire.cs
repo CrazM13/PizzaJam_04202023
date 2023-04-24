@@ -10,6 +10,8 @@ public class Snot_Fire : MonoBehaviour
     public float timeLerpStart;
     public float lerpTime = 10f;
     public bool isReflected;
+    public ParticleSystem explosion;
+    public GameObject snot;
 
     void Start()
     {
@@ -30,6 +32,21 @@ public class Snot_Fire : MonoBehaviour
         float percentageLerped = TimePassed / lerpTiming;
         var result = Vector3.Lerp(start, end, percentageLerped);
         return result;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "target")
+        {
+            explosion.Play();
+            Destroy(snot);
+            StartCoroutine(destroyObject());
+        }
+    }
+    IEnumerator destroyObject()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
     }
 
     public void reflected()
