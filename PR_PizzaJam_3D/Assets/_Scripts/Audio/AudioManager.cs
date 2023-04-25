@@ -130,4 +130,8 @@ public class AudioManager : MonoBehaviour {
 		floatingAudioSource.SetActive(false);
 		floatingAudioSources.Destroy(floatingAudioSource);
 	}
+
+	public AudioSource GetGlobalAudioSource() {
+		return globalAudioSource;
+	}
 }
