@@ -31,6 +31,7 @@ public class OldManHealth : MonoBehaviour
 
         if(health <=0)
         {
+            
             Destroy(gameObject);
         }
 
@@ -53,7 +54,7 @@ public class OldManHealth : MonoBehaviour
             Debug.Log("OUCH");
 
             // Update health prioir to animation play
-            health--;
+            health = health - 1;
 
 			// Play animation
 			if (health <= 0) animations.PlayDeath();
