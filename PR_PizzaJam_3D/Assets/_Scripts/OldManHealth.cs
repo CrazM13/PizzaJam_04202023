@@ -49,15 +49,24 @@ public class OldManHealth : MonoBehaviour
     {
         if (collision.collider.tag == "Snot")
         {
+            OldmanHealth();
             Debug.Log("OUCH");
 
-			// Update health prioir to animation play
+            // Update health prioir to animation play
+            health--;
 
 			// Play animation
 			if (health <= 0) animations.PlayDeath();
 			else animations.PlayHit();
 
 		}
+    }
+
+    public void OldmanHealth()
+    {
+        Debug.Log("GAMEOVER");
+        animations.PlayHit();
+
     }
 }
 

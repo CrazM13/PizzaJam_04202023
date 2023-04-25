@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -475,6 +475,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452317621}
   m_CullTransparentMesh: 1
+--- !u!1 &555526987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 763425455878841353, guid: dfaa4a37b493269489aafb9c2fdc857f,
+    type: 3}
+  m_PrefabInstance: {fileID: 833045436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &667758623
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +742,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4220248889572217138, guid: dfaa4a37b493269489aafb9c2fdc857f,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4220248889572217138, guid: dfaa4a37b493269489aafb9c2fdc857f,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4220248889572217138, guid: dfaa4a37b493269489aafb9c2fdc857f,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2012155123}
+    - target: {fileID: -4220248889572217138, guid: dfaa4a37b493269489aafb9c2fdc857f,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4220248889572217138, guid: dfaa4a37b493269489aafb9c2fdc857f,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OldmanHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: -4220248889572217138, guid: dfaa4a37b493269489aafb9c2fdc857f,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: OldManHealth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -4220248889572217138, guid: dfaa4a37b493269489aafb9c2fdc857f,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 763425455878841353, guid: dfaa4a37b493269489aafb9c2fdc857f,
         type: 3}
       propertyPath: m_Name
@@ -969,6 +1010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020272539772228307, guid: 866f486dc6ba4ea4e8edb348403f1345,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2020272539772228334, guid: 866f486dc6ba4ea4e8edb348403f1345,
         type: 3}
@@ -1562,6 +1608,48 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 833045436}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2012155123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1747260529381861432, guid: dfaa4a37b493269489aafb9c2fdc857f,
+    type: 3}
+  m_PrefabInstance: {fileID: 833045436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555526987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca4d08246337464ca2577c33760775c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &2012155126
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555526987}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &2012155127
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555526987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2086475212
 GameObject:
   m_ObjectHideFlags: 0
