@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -819,7 +819,7 @@ PrefabInstance:
     - target: {fileID: 3711376440154453746, guid: dfaa4a37b493269489aafb9c2fdc857f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfaa4a37b493269489aafb9c2fdc857f, type: 3}
@@ -873,7 +873,7 @@ PrefabInstance:
     - target: {fileID: 1869181055809054225, guid: 866f486dc6ba4ea4e8edb348403f1345,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2020272538550405918, guid: 866f486dc6ba4ea4e8edb348403f1345,
         type: 3}
@@ -902,9 +902,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020272539772228304, guid: 866f486dc6ba4ea4e8edb348403f1345,
         type: 3}
-      propertyPath: overTheShoulderCamera
-      value: 
-      objectReference: {fileID: 2002265964}
+      propertyPath: timeScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020272539772228304, guid: 866f486dc6ba4ea4e8edb348403f1345,
+        type: 3}
+      propertyPath: cameraSensativity.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020272539772228304, guid: 866f486dc6ba4ea4e8edb348403f1345,
+        type: 3}
+      propertyPath: cameraSensativity.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2020272539772228305, guid: 866f486dc6ba4ea4e8edb348403f1345,
         type: 3}
       propertyPath: m_RootOrder
@@ -1546,12 +1556,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2002265964 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1588896575232824414, guid: 866f486dc6ba4ea4e8edb348403f1345,
-    type: 3}
-  m_PrefabInstance: {fileID: 833886836}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2012155122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 763425455878841359, guid: dfaa4a37b493269489aafb9c2fdc857f,

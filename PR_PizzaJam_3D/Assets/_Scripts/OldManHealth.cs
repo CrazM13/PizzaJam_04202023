@@ -11,6 +11,9 @@ public class OldManHealth : MonoBehaviour
     public GameObject healthBarUI;
     public Slider slider;
 
+	[Header("Animations")]
+	[SerializeField] private HumanoidAnimationManager animations;
+
     void Start()
     {
         health = maxHealth;
@@ -46,9 +49,15 @@ public class OldManHealth : MonoBehaviour
     {
         if (collision.collider.tag == "Snot")
         {
-            Debug.Log("OUCH");     
+            Debug.Log("OUCH");
 
-        }
+			// Update health prioir to animation play
+
+			// Play animation
+			if (health <= 0) animations.PlayDeath();
+			else animations.PlayHit();
+
+		}
     }
 }
 

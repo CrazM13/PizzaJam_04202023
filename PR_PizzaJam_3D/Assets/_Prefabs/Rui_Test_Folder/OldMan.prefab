@@ -49,6 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snotFireTimer: 0
   Snot: {fileID: 3236417738769094594, guid: bc3b969bf83fb9b4a83d7d6b1e804ce5, type: 3}
+  isSneezing: 1
+  animations: {fileID: 1733591976766640656}
+  windupTime: 1.5
 --- !u!114 &-4220248889572217138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +164,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 219be9af3a6f8ea4598d3d6e3c57cab4, type: 3}
+--- !u!114 &1733591976766640656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7532607959747463539, guid: 219be9af3a6f8ea4598d3d6e3c57cab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8108669214470151011}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f74be5067358b4db67d822fc3c96ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3711376440154453746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4829743934811630993, guid: 219be9af3a6f8ea4598d3d6e3c57cab4,

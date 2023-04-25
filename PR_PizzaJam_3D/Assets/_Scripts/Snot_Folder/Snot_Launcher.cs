@@ -9,6 +9,11 @@ public class Snot_Launcher : MonoBehaviour
     public GameObject Snot;
     public bool isSneezing = true;
 
+	// Animation Settings
+	[Header("Animations")]
+	[SerializeField] private HumanoidAnimationManager animations;
+	[SerializeField] private float windupTime;
+
     void Start()
     {
         snotFireTimer = 2f;
@@ -23,21 +28,22 @@ public class Snot_Launcher : MonoBehaviour
             isSneezing = true;
         }
         //Change 2f to whatever seconds necessary.
-        if (snotFireTimer <= 2f && isSneezing == true)
+        if (snotFireTimer <= windupTime && isSneezing == true)
         {
             isSneezing = false;
-            //Play animation here
-        }
+			animations.PlayAction();
+			ServiceLocator.AudioManager.PlayRandomLocal(transform.position, "SneezeSFX");
+		}
 
         if (snotFireTimer <= 0f){
             snotFireTimer = 20f;
             Instantiate(Snot,this.transform.position,this.transform.rotation);
-			ServiceLocator.AudioManager.PlayRandomLocal(transform.position, "SneezeSFX");
         }
     }
 
     public void Assault()
     {
+		animations.PlayDeath();
         Debug.Log("Game Over.");
     }
 }

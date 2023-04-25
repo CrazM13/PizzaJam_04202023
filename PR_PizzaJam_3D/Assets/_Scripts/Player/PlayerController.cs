@@ -13,8 +13,12 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private float swingRadius;
 	[SerializeField] private int swingDistance;
 	[Header("Camera Settings")]
-	[SerializeField] private Vector2 cameraSensativity;
+	[SerializeField] private Vector2 cameraSensitivity;
 	[SerializeField] private float maxCameraTilt;
+	[Header("Aim Settings")]
+	[SerializeField] private float aimingTimeScale;
+	[SerializeField] private Vector2 aimingSensitivity;
+	//[SerializeField] private bool betterAim;
 	[Space()]
 	[Header("Model Components")]
 	[SerializeField] private Transform rotationTransform;
@@ -28,11 +32,13 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 mouseInput;
 	private Vector2 movementInput;
 	private bool isSwinging;
+	private bool isAiming;
 
 	private void GetInputs() {
 		mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 		movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		isSwinging = Input.GetButtonDown("Fire1");
+		isAiming = Input.GetButton("Fire2");
 	}
 	#endregion
 
@@ -73,20 +79,44 @@ public class PlayerController : MonoBehaviour {
 
 	private float cameraTilt;
 
+	private bool wasPreviouslyAiming;
+
 	private void InitCamera() {
 		Cursor.lockState = CursorLockMode.Locked;
 		cameraTransform = Camera.main.transform;
 	}
 
 	private void OnUpdateCamera() {
-		rotationTransform.Rotate(Vector3.up, mouseInput.x * cameraSensativity.x * Time.deltaTime);
-
-		cameraTilt += -mouseInput.y * cameraSensativity.y * Time.deltaTime;
-		cameraTilt = Mathf.Clamp(cameraTilt, -maxCameraTilt, maxCameraTilt);
-		//Vector3 direction = Quaternion.AngleAxis(cameraTilt, cameraTransform.right) * rotationTransform.forward;
-		//cameraFocusPoint.position = rotationTransform.position + direction;
+		if (isAiming) UpdateCameraAiming();
+		else UpdateCameraStandard();
 
 		overTheShoulderCamera.localRotation = Quaternion.AngleAxis(cameraTilt, Vector3.right);
+	}
+
+	private void UpdateCameraStandard() {
+		rotationTransform.Rotate(Vector3.up, mouseInput.x * cameraSensitivity.x * Time.fixedDeltaTime);
+
+		cameraTilt += -mouseInput.y * cameraSensitivity.y * Time.fixedDeltaTime;
+		cameraTilt = Mathf.Clamp(cameraTilt, -maxCameraTilt, maxCameraTilt);
+	}
+
+	private void UpdateCameraAiming() {
+		float fixedTimeScale = 1f / aimingTimeScale;
+
+		rotationTransform.Rotate(Vector3.up, mouseInput.x * aimingSensitivity.x * Time.fixedDeltaTime * fixedTimeScale);
+
+		cameraTilt += -mouseInput.y * aimingSensitivity.y * Time.fixedDeltaTime * fixedTimeScale;
+		cameraTilt = Mathf.Clamp(cameraTilt, -maxCameraTilt, maxCameraTilt);
+	}
+
+	private void UpdateTime() {
+		if (wasPreviouslyAiming && !isAiming) {
+			Time.timeScale = 1;
+			wasPreviouslyAiming = isAiming;
+		} else if (!wasPreviouslyAiming && isAiming) {
+			Time.timeScale = aimingTimeScale;
+			wasPreviouslyAiming = isAiming;
+		}
 	}
 	#endregion
 
@@ -137,6 +167,11 @@ public class PlayerController : MonoBehaviour {
 
 	#endregion
 
+	#region Aiming
+	
+
+	#endregion
+
 	// Start is called before the first frame update
 	void Start() {
 		InitCamera();
@@ -146,8 +181,9 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		GetInputs();
+		UpdateTime();
 
-		
+
 		OnSwingUpdate();
 	}
 
