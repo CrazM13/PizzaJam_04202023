@@ -496,11 +496,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3711376440154453746, guid: dfaa4a37b493269489aafb9c2fdc857f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfaa4a37b493269489aafb9c2fdc857f, type: 3}
 --- !u!1001 &833886836
