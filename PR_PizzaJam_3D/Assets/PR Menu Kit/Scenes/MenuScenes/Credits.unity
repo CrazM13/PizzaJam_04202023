@@ -1903,6 +1903,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3746051490498620312, guid: 60a766008a63f6a4ba08911214535932,
+        type: 3}
+      propertyPath: music
+      value: Menu BGM
+      objectReference: {fileID: 0}
     - target: {fileID: 8702070282419846908, guid: 60a766008a63f6a4ba08911214535932,
         type: 3}
       propertyPath: m_RootOrder

@@ -16,3 +16,5 @@ MonoBehaviour:
   audioClips:
   - item: {fileID: 8300000, guid: 6bd6d2f9d2a9ac847b1dad2408650ca4, type: 3}
     weight: 0
+  - item: {fileID: 8300000, guid: 07a529b09e06b1f45a7d0552eeaabdba, type: 3}
+    weight: 0
