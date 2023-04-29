@@ -54,6 +54,7 @@ public class Snot_Fire : MonoBehaviour
         if (isReflected == false)
         {
             isReflected = true;
+            this.tag = "Reflected";
             timeLerpStart = Time.time;
             Vector3 relativePos = startingPosition - this.transform.position;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);

@@ -48,7 +48,7 @@ public class OldManHealth : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Snot")
+        if (collision.collider.tag == "Reflected")
         {
 			if (health <= 0) return;
             OldmanHealth();
