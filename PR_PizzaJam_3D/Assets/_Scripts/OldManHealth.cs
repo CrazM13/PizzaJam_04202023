@@ -60,7 +60,13 @@ public class OldManHealth : MonoBehaviour
 			if (health <= 0)
 			{
 				animations.PlayDeath();
-				ServiceLocator.SceneManager.LoadSceneByName("Win Scene", 5);
+
+				bool isGameWon = true;
+				foreach (OldManHealth healthbar in FindObjectsOfType<OldManHealth>()) {
+					if (healthbar.health > 0) isGameWon = false;
+				}
+
+				if (isGameWon) ServiceLocator.SceneManager.LoadSceneByName("Win Scene", 5);
 			} 
 			else animations.PlayHit();
 
