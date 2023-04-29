@@ -17,7 +17,9 @@ public class PauseMenu : MonoBehaviour {
 		}
 	}
 
-
+	public void Show(bool show) {
+		IsShowing = show;
+	}
 
 	
 }

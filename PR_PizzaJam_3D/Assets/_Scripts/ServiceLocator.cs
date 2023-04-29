@@ -7,6 +7,7 @@ public class ServiceLocator : MonoBehaviour {
 	public static SceneTransition @SceneManager { get; set; }
 	public static AudioManager @AudioManager { get; set; }
 	public static SwingManager @SwingManager { get; set; }
+	public static PauseMenu @PauseMenu { get; set; }
 
 	// Singleton
 	private static ServiceLocator instance;
@@ -24,6 +25,7 @@ public class ServiceLocator : MonoBehaviour {
 		@SceneManager = FindObjectOfType<SceneTransition>();
 		@AudioManager = FindObjectOfType<AudioManager>();
 		@SwingManager = new SwingManager();
+		@PauseMenu = FindObjectOfType<PauseMenu>();
 	}
 
 	private void OnDestroy() {
@@ -31,6 +33,7 @@ public class ServiceLocator : MonoBehaviour {
 			@SceneManager = null;
 			@AudioManager = null;
 			SwingManager = null;
+			@PauseMenu = null;
 		}
 	}
 }

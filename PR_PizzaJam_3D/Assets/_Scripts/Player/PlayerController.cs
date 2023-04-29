@@ -81,9 +81,19 @@ public class PlayerController : MonoBehaviour {
 
 	private bool wasPreviouslyAiming;
 
+	private bool isPaused;
+
 	private void InitCamera() {
-		Cursor.lockState = CursorLockMode.Locked;
+		LockMouse(true);
 		cameraTransform = Camera.main.transform;
+	}
+
+	private void LockMouse(bool isLocked) {
+		if (isLocked) {
+			Cursor.lockState = CursorLockMode.Locked;
+		} else {
+			Cursor.lockState = CursorLockMode.None;
+		}
 	}
 
 	private void OnUpdateCamera() {
@@ -110,6 +120,19 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void UpdateTime() {
+
+		if (Input.GetButtonDown("Pause")) {
+			isPaused = !isPaused;
+			ServiceLocator.PauseMenu.Show(isPaused);
+			LockMouse(!isPaused);
+
+			Time.timeScale = isPaused ? 0 : 1;
+		}
+
+		if (isPaused) {
+			return;
+		}
+
 		if (wasPreviouslyAiming && !isAiming) {
 			Time.timeScale = 1;
 			wasPreviouslyAiming = isAiming;
