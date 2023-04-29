@@ -50,6 +50,7 @@ public class OldManHealth : MonoBehaviour
     {
         if (collision.collider.tag == "Snot")
         {
+			if (health <= 0) return;
             OldmanHealth();
             Debug.Log("OUCH");
 
@@ -57,7 +58,7 @@ public class OldManHealth : MonoBehaviour
             health = health - 1;
 
 			// Play animation
-			if (health <= 0)
+			if (health == 0)
 			{
 				animations.PlayDeath();
 
@@ -69,7 +70,6 @@ public class OldManHealth : MonoBehaviour
 				if (isGameWon) ServiceLocator.SceneManager.LoadSceneByName("Win Scene", 5);
 			} 
 			else animations.PlayHit();
-
 		}
     }
 
