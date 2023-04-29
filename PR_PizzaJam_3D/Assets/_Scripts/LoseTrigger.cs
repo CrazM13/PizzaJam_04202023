@@ -25,7 +25,7 @@ public class LoseTrigger : MonoBehaviour
 
     public void Gameover()
     {
-        Debug.Log("GAMEOVER");
+		ServiceLocator.SceneManager.LoadSceneByName("Lose Scene", 5);
 		animations.PlayDeath();
 
 	}

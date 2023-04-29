@@ -44,6 +44,6 @@ public class Snot_Launcher : MonoBehaviour
     public void Assault()
     {
 		animations.PlayDeath();
-        Debug.Log("Game Over.");
-    }
+		ServiceLocator.SceneManager.LoadSceneByName("Lose Scene", 5);
+	}
 }

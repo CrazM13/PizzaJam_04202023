@@ -57,16 +57,19 @@ public class OldManHealth : MonoBehaviour
             health = health - 1;
 
 			// Play animation
-			if (health <= 0) animations.PlayDeath();
+			if (health <= 0)
+			{
+				animations.PlayDeath();
+				ServiceLocator.SceneManager.LoadSceneByName("Win Scene", 5);
+			} 
 			else animations.PlayHit();
 
 		}
     }
 
-    public void OldmanHealth()
-    {
-        Debug.Log("GAMEOVER");
-        animations.PlayHit();
+    public void OldmanHealth() 
+	{
+		animations.PlayHit();
 
     }
 }
