@@ -6,6 +6,7 @@ TagManager:
   tags:
   - target
   - Snot
+  - Reflected
   layers:
   - Default
   - TransparentFX
