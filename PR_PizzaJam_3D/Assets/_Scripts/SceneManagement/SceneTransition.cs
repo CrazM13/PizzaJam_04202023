@@ -48,6 +48,7 @@ public class SceneTransition : MonoBehaviour {
 						SceneManager.LoadScene(changeToScene);
 						timeUntilFinished = animationTime;
 						changeToScene = "";
+						Cursor.lockState = CursorLockMode.None;
 					} else {
 						canvas.blocksRaycasts = false;
 						canvas.alpha = 0;

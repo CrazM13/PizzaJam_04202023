@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/PR Menu Kit/Scenes/MenuScenes/Main Menu.unity
+    guid: 4a7726a03208e554ebad10acdce7532a
+  - enabled: 1
     path: Assets/PR Menu Kit/Scenes/MenuScenes/Credits.unity
     guid: ba8b9eff593e7aa4ca1f4aee5b3e6997
   - enabled: 1
     path: Assets/PR Menu Kit/Scenes/MenuScenes/Lose Scene.unity
     guid: 4cbcb6b64c733b04f9f562fe23189572
-  - enabled: 1
-    path: Assets/PR Menu Kit/Scenes/MenuScenes/Main Menu.unity
-    guid: 4a7726a03208e554ebad10acdce7532a
   - enabled: 1
     path: Assets/PR Menu Kit/Scenes/MenuScenes/Options.unity
     guid: 6c4a89a8bd407d94ab7f96276c46e2f8
